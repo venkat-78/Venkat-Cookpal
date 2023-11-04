@@ -1,241 +1,285 @@
-<!DOCTYPE html>
-<html lang="en">
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    <!-- bootstrap link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+a {
+    text-decoration: none;
+}
 
-    <link rel="shortcut icon" href="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/4539e6b1-370e-429c-91d2-2bb88562e60e" type="image/x-icon">
+.main {
+    margin: 0 80px;
+}
 
-    <!-- css link -->
-    <link rel="stylesheet" href="style.css">
-    <title>Cookpal</title>
-</head>
+.container-fluid {
+    padding: 0;
+}
 
-<body>
-    <main class="main">
-        <nav class="navbar navbar-expand-lg pt-4">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/f2efeacd-7c55-4f8b-a4aa-96260f5926b8" alt="cookpal logo" width="96"
-                        height="46"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+.form-check-input:checked {
+    background-color: #509E2F;
+    border-color: #509E2F;
+    color: #ffffff;
+}
 
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <a class="navbar-brand" href="#"><img src="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/f2efeacd-7c55-4f8b-a4aa-96260f5926b8" alt="cookpal logo" width="96"
-                                height="46"></a>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body nav-body">
-                        <ul class="navbar-nav gap-3 justify-content-end flex-grow-1 pe-5">
-                            <li class="nav-item">
-                                <a id="active" class="nav-link fw-semibold" aria-current="page" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-semibold" href="#recipeCards">Explore</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-semibold" href="#footer">Help</a>
-                            </li>
-                        </ul>
-                        <img src="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/c4fdf2ce-8653-4c63-bae5-1fcd18d0bf55" alt="user logo" class="user-profile-img">
-                    </div>
-                </div>
-            </div>
-        </nav>
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem #509e2f4f;
+}
 
-        <section id="banner" class="d-flex align-items-center">
-            <div class="content">
-                <p class="m-0 fs-5">Trending now</p>
-                <h2 class="text-white fw-bold fs-1">Mike’s famous salad <br> with cheese</h2>
-                <p class="text-white">By John Mike</p>
-            </div>
-        </section>
+.form-control:focus {
+    border-color: #509E2F;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #509e2f4f;
+}
 
-        <section id="search-box">
-            <h5 class="fw-bold mb-4">Search For Recipes</h5>
-            <div class="search input-group mb-3 d-flex align-items-center">
-                <i class="fa-solid fa-magnifying-glass ms-2"></i>
-                <input type="text" id="searchInput" class="form-control p-2" placeholder="Search for recipes..."
-                    aria-describedby="button-addon2">
+/* navbar css */
 
-                <button class="btn btn-outline-secondary searchBtn" type="button" id="button-addon2">
-                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                </button>
-            </div>
-        </section>
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: #253D4E;
+    transition: all 0.2s ease-out;
+}
 
-        <section id="btn" class="d-flex gap-3 my-5 flex-wrap">
-            <button id="all" class="btn text-white px-3 py-4" style="background-color: #EAAA00;">All Recipes
-                <i class="ms-4 fa-solid fa-chevron-right"></i>
-            </button>
-            <button id="veg" class="btn text-white px-3 py-4" style="background-color: #C4D600;">Veg Recipes Only
-                <i class="ms-4 fa-solid fa-chevron-right"></i>
-            </button>
-            <button id="non-veg" class="btn text-white px-3 py-4" style="background-color: #DC582A;">Non Veg Recipes
-                <i class="ms-4 fa-solid fa-chevron-right"></i>
-            </button>
-        </section>
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #509E2F;
+}
 
-        <section id="box" class="my-5">
-            <div class="sidebar">
-                <div class="filter mb-4">
-                    <h3 class="fw-bold">Filters</h3>
-                </div>
-                <div class="rating-filter">
-                    <h5 class="fw-semibold mb-3">Rating</h5>
-                    <div class="filter-box">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="4andabove">
-                            <label class="form-check-label" for="4andabove">
-                                4 and Above
-                            </label>  
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="below4">
-                            <label class="form-check-label" for="below4">
-                            Below 4
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div id="recipeCards" class="d-flex flex-wrap gap-4">
-              <!-- <div class="card p-2">
-                    <img src="https://source.unsplash.com/random?chicken" class="recipe-img" alt="img">
-                    <div class="card-body">
-                        <span class="type">Veg</span>
- 
-                        <div class="recipe-info d-flex justify-content-between">
-                            <h4 class="name">Russian Salad</h4>
 
-                            <p class="rating"><i class="fa-solid fa-star" style="color: #fdc040;"></i> 4.5</p>
-                        </div>
-                        <div class="del-time d-flex justify-content-between">
-                            <h5 class="time">40 min</h5>
+/* banner css */
 
-                            <div class="like-com">
-                                <span class="liked"><i class="fa-regular fa-heart fa-lg" style="color: #000000;"></i></span>
+#banner {
+    height: 380px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #252525 -16.65%, rgba(0, 0, 0, 0.00) 100%), url(https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/a241b1bf-b832-4fc7-b14a-3c0afe31804e), lightgray 50%;
+    background-position: center;
+    background-size: cover;
+    padding: 5vw;
+    margin: 40px 0;
+}
 
-                                <span class="comment"><i class="fa-regular fa-comment fa-lg" style="color: #000000;"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </section>
+.content>p:first-child {
+    color: #DC582A;
+    ;
+}
 
-        <!---footer section-->
-        <footer id="footer" class="text-center text-lg-start border border-white mt-xl-5 py-4">
-            <!-- Grid container -->
-            <div class="container">
-                <!--Grid row-->
-                <div class="row">
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-lg-0 box-1">
-                        <a class="navbar-brand" href="index.html"><img src="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/f2efeacd-7c55-4f8b-a4aa-96260f5926b8" alt="logo"></a>
-                        <p class="mt-4">Cookpal is a recipe website with a
-                            wide variety of delicious recipes,
-                            easy-to-use search function. Join
-                            our community and let's cook
-                            together!</p>
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 box-2">
-                        <h5 class="text-uppercase-bold mb-4 fw-bold">Company</h5>
+/* search box css */
 
-                        <ul class="list-unstyled d-flex flex-column gap-3">
-                            <li>
-                                <a href="index.html" class="text-red fw-semibold">Home</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-red fw-semibold">Explore</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-red fw-semibold">Team</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-red fw-semibold">About us</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-red fw-semibold">Activity</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--Grid column-->
+#search-box>.search {
+    background: #F3F3F3;
+}
 
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 box-3">
-                        <h5 class="text-uppercase-bold mb-4 fw-bold">Resources</h5>
+#search-box>.search>input {
+    background: transparent;
+    border: none;
+}
 
-                        <ul class="list-unstyled d-flex flex-column gap-3">
-                            <li>
-                                <a href="#" class="text-red fw-semibold">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-red fw-semibold">Use Cases</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-red fw-semibold">Testimonials</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-red fw-semibold">Insights</a>
-                            </li>
+#search-box>.search>input:focus {
+    box-shadow: none;
+}
 
-                        </ul>
-                    </div>
-                    <!--Grid column-->
+#search-box>.search>.searchBtn {
+    width: 80px;
+    height: 65px;
+    border: none;
+    color: #fff;
+    background-color: #509E2F;
+}
 
-                    <div class="col-lg-3 col-md-6 mb-3 box-4">
-                        <form>
-                            <a class="navbar-brand mb-4" href="index.html"><img src="https://github.com/NikhilPeddireddy/f2-contest3/assets/139708292/f2efeacd-7c55-4f8b-a4aa-96260f5926b8" alt="logo"></a>
-                            <p class="mt-3">Ut risus mattis interdum faucibus facilisi. Facilisi purus <br>
-                                accumsan aliquaum</p>
-                          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control border border-secondary" placeholder="Your Email              @">
-                            <button style="background-color: #509E2F;" class="btn btn-primary border-0" type="button">Subscribe</button>
-                          </div>
-                        </form>
-                      </div>
+#search-box>.search>.searchBtn:hover {
+    background-color: #438d23;
+}
 
-                    <!--Grid column-->
-                </div>
-                <!--Grid row-->
-            </div>
-            <!-- Grid container -->
-            <div class="socialicon mb-4">
-        
-                <i class="fa-brands fa-square-twitter icon1"></i>
-                <i class="fa-brands fa-square-instagram icon2"></i>
-                <i class="fa-brands fa-square-whatsapp icon3"></i>
-                <i class="fa-brands fa-square-github icon4"></i>
-                <i class="fa-brands fa-square-youtube icon5"></i>
-            
-            </div>
-        </footer>
+#box {
+    display: flex;
+    justify-content: space-between;
+}
 
-    </main>
+.sidebar {
+    width: 20%;
+}
 
-    <script src="script.js"></script>
+#recipeCards {
+    width: 75%;
+    transition: all 0.5s ease-in-out;
+}
 
-    <!-- bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
+/* CARDS CSS */
 
-</html>
+.card {
+    width: 290px;
+    height: 330px;
+    flex-shrink: 0;
+    /* flex-grow: 1; */
+    border-radius: 16px;
+    box-shadow: 0px 3px 8px -1px rgba(50, 50, 71, 0.05), 0px 0px 1px 0px rgba(12, 26, 75, 0.24);
+    border: none;
+    transition: all 0.3s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+        0 24px 46px rgba(220, 233, 255, 0.48);
+    ;
+}
+
+.card>img {
+    min-height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+.card-body .type {
+    color: #A1A1A1;
+    font-size: 14px;
+    line-height: 24px;
+    /* 240% */
+}
+
+.card-body>.recipe-info .name {
+    color: #252525;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.card-body>.recipe-info .rating {
+    color: #A1A1A1;
+}
+
+.card-body>.del-time .time {
+    color: #DC582A;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 136.523%;
+}
+
+.card-body>.del-time>.like-com span>i {
+    width: 22px;
+    height: 22px;
+}
+
+.card-body>.del-time>.like-com button {
+    border: none;
+    background-color: transparent;
+}
+
+/* footer css */
+
+#footer h5 {
+    color: #253D4E;
+}
+
+#footer a {
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.socialicon {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.socialicon>.icon1,
+.icon2,
+.icon3,
+.icon4,
+.icon5 {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+@media (max-width: 355.98px) {
+    .main {
+        margin: 0 15px !important;
+    }
+}
+
+/* // `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .main {
+        margin: 0 40px;
+    }
+
+    .card {
+        flex-grow: 1 !important;
+        height: 400px;
+    }
+
+    .card>img {
+        height: 253px;
+    }
+}
+
+/* // `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+    .card {
+        width: 250px;
+        height: 400px;
+        flex-grow: 1 !important;
+    }
+
+    .card>img {
+        height: 253px;
+    }
+}
+
+/* // `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    #box {
+        display: block;
+    }
+
+    .sidebar,
+    #recipeCards {
+        width: 100%;
+    }
+
+    .sidebar>.filter {
+        display: none;
+    }
+
+    .card {
+        flex-grow: 1 !important;
+    }
+
+    .sidebar>.rating-filter>.filter-box {
+        display: flex;
+        gap: 20px;
+    }
+
+    .user-profile-img {
+        position: absolute;
+        top: 25px;
+        left: 75%;
+    }
+}
+
+/* // `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .card {
+        flex-grow: 0;
+    }
+
+    .box-1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .box-2,
+    .box-3,
+    .box-4 {
+        display: none;
+    }
+}
